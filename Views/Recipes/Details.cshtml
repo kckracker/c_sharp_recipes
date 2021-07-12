@@ -1,0 +1,25 @@
+@model Recipes.Models.Recipe
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="jumbotron">
+    <h1 class="display-4">@Html.DisplayFor(model => model.Title)</h1>
+    <hr class="my-4">
+    <h3 class="h3">@Html.DisplayNameFor(model => model.Ingredients)</h3>
+    <p class="lead">@Html.DisplayFor(model => model.Ingredients)</p>
+    <br />
+    <h3 class="h3">@Html.DisplayNameFor(model => model.Instructions)</h3>
+    <p class="lead">@Html.DisplayFor(model => model.Instructions)</p>
+    <br />
+    <h3 class="h3">@Html.DisplayNameFor(model => model.Cook_Time)</h3>
+    <p class="lead">@Html.DisplayFor(model => model.Cook_Time) minutes</p>
+</div>
+<hr class="my-4">
+<nav class="nav nav-pills nav-justified">
+    <a class="btn btn-primary btn-lg nav-item" asp-action="Index" role="button">Home</a>
+    <a class="btn btn-info btn-lg nav-item" asp-action="Edit" asp-route-id="@Model.Id" role="button">Edit</a>
+    <a class="btn btn-danger btn-lg nav-item" asp-action="Delete" asp-route-id="@Model.Id" role="button">Delete</a>
+</nav>
+

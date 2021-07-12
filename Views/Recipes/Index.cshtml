@@ -1,0 +1,47 @@
+@model IEnumerable<Recipes.Models.Recipe>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="jumbotron">
+  <h1 class="display-4">Recipes App</h1>
+  <p class="lead">A simple recipe application for storing the magic formula for delicious food.</p>
+  <hr class="my-4">
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" asp-action="Create" role="button">Create New</a>
+  </p>
+</div>
+
+<div class="card-deck">
+    
+    @foreach (var item in Model)
+    {
+    <div class="card bg-light mb-3">
+        <div class="card-body">
+            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
+            <br />
+            <h6 class="card-text">@Html.DisplayNameFor(modelItem => item.Ingredients)</h6>
+            <p class="card-text">@Html.DisplayFor(modelItem => item.Ingredients)</p>
+            <br />
+            <h6 class="card-text">@Html.DisplayNameFor(modelItem => item.Instructions)</h6>
+            <p class="card-text">@Html.DisplayFor(modelItem => item.Instructions)</p>
+            <br />
+            <h6 class="card-text">@Html.DisplayNameFor(modelItem => item.Cook_Time)</h6>
+            <p class="card-text">@Html.DisplayFor(modelItem => item.Cook_Time) minutes</p>
+            <br />
+            <p class="card-text">@Html.DisplayFor(modelItem => item.Image_Path)</p>
+            <nav class="nav nav-pills nav-justified">
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary nav-item">Details</a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info nav-item">Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger nav-item">Delete</a>
+            </nav>
+        </div>
+        
+    </div>
+    }
+</div> 
+            
+
+ 
+    
